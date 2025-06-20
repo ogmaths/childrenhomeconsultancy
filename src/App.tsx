@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { useRoutes, Routes, Route } from "react-router-dom";
+import Navigation from "./components/Navigation";
 import Home from "./components/home";
 import PreRegistration from "./pages/pre-registration";
 import InspectionReadiness from "./pages/inspection-readiness";
@@ -12,6 +13,7 @@ function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <>
+        <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pre-registration" element={<PreRegistration />} />

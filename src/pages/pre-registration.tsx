@@ -11,6 +11,10 @@ import {
   Shield,
   Building,
   HelpCircle,
+  Star,
+  Zap,
+  Target,
+  Award,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -23,7 +27,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 
 const PreRegistration = () => {
   // Animation variants
@@ -38,12 +42,12 @@ const PreRegistration = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
       },
     },
   };
@@ -60,6 +64,7 @@ const PreRegistration = () => {
         "Children's Guide template",
         "Basic registration guidance",
       ],
+      gradient: "from-emerald-500 to-emerald-600",
     },
     {
       title: "Standard Package",
@@ -73,6 +78,7 @@ const PreRegistration = () => {
         "2 consultation calls",
       ],
       highlighted: true,
+      gradient: "from-navy-600 to-navy-700",
     },
     {
       title: "Full Setup Package",
@@ -86,6 +92,7 @@ const PreRegistration = () => {
         "HR templates and guidance",
         "Unlimited support calls",
       ],
+      gradient: "from-mustard-500 to-mustard-600",
     },
   ];
 
@@ -115,24 +122,91 @@ const PreRegistration = () => {
     },
   ];
 
+  const services = [
+    {
+      icon: <FileText className="h-8 w-8" />,
+      title: "Registration Application Support",
+      description: "Expert guidance through the Ofsted application process",
+      features: [
+        "Step-by-step application walkthrough",
+        "Document preparation and review",
+        "Application submission guidance",
+      ],
+      gradient: "from-blue-500 to-blue-600",
+    },
+    {
+      icon: <Shield className="h-8 w-8" />,
+      title: "Policy & Procedure Pack",
+      description: "20+ essential compliant policies",
+      features: [
+        "Safeguarding and child protection",
+        "Behavior management",
+        "Health and safety procedures",
+      ],
+      gradient: "from-emerald-500 to-emerald-600",
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: "RI & Manager Setup",
+      description: "Support for key personnel requirements",
+      features: [
+        "Role clarification and responsibilities",
+        "Interview preparation",
+        "Fit person questionnaire guidance",
+      ],
+      gradient: "from-purple-500 to-purple-600",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-navy-700 to-navy-900 text-white py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <section className="relative py-24 px-4 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-50 via-white to-mustard-50" />
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-mustard-200 to-mustard-300 rounded-full opacity-20 animate-bounce-gentle" />
+        <div className="absolute bottom-20 left-10 w-24 h-24 bg-gradient-to-br from-navy-200 to-navy-300 rounded-full opacity-25" />
+
+        <div className="relative z-10 container mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <Badge className="mb-6 bg-gradient-to-r from-navy-600 to-navy-700 text-white px-6 py-2 text-lg">
               Pre-Registration Support
+            </Badge>
+            <h1 className="text-5xl md:text-6xl font-heading font-bold text-gray-900 mb-6">
+              Start Your <span className="gradient-text">Children's Home</span>{" "}
+              Journey
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              Everything you need to start your children's home journey with
-              confidence
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Everything you need to open your children's home with confidence,
+              expert guidance, and proven success strategies
             </p>
+          </motion.div>
+
+          {/* Quick Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16"
+          >
+            {[
+              { number: "98%", label: "Success Rate" },
+              { number: "150+", label: "Homes Registered" },
+              { number: "20+", label: "Policy Templates" },
+              { number: "24/7", label: "Support Available" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl font-bold text-navy-600 mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -140,462 +214,298 @@ const PreRegistration = () => {
       {/* Main Content */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-          >
-            <motion.div variants={itemVariants} className="md:col-span-2">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                Start Your Children's Home Journey
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Opening a children's home requires careful planning, extensive
-                documentation, and a thorough understanding of Ofsted
-                requirements. Our pre-registration services are designed for
-                individuals and organizations who want to open a children's home
-                but don't know where to start.
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                We'll guide you through every step of the process, from initial
-                concept to successful registration, ensuring you have all the
-                documentation, policies, and procedures in place to meet
-                regulatory requirements.
-              </p>
-
-              <div className="bg-navy-50 border-l-4 border-teal-500 p-4 rounded-r mb-8">
-                <h3 className="text-xl font-semibold text-navy-700 mb-2">
-                  Why Choose Our Pre-Registration Support?
-                </h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-navy-500 mr-2 mt-1" />
-                    <span>
-                      Expert guidance from professionals with years of
-                      experience in children's home registration
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-navy-500 mr-2 mt-1" />
-                    <span>
-                      Comprehensive, Ofsted-compliant documentation and policies
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-navy-500 mr-2 mt-1" />
-                    <span>
-                      Personalized support tailored to your specific children's
-                      home vision
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-navy-500 mr-2 mt-1" />
-                    <span>
-                      Increased chances of successful registration on your first
-                      application
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+            {/* Main Content */}
             <motion.div
-              variants={itemVariants}
-              className="bg-gray-50 p-6 rounded-lg shadow-sm"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="lg:col-span-2 space-y-8"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                Ready to Get Started?
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Book a free consultation call to discuss your children's home
-                plans and how we can help you achieve registration.
-              </p>
-
-              <Link to="/contact">
-                <Button className="w-full mb-4 bg-navy-800 hover:bg-gray-100">
-                  <Phone className="mr-2 h-4 w-4" /> Book a Free Consultation
-                </Button>
-              </Link>
-
-              <Link to="/resources">
-                <Button variant="outline" className="w-full">
-                  <Download className="mr-2 h-4 w-4" /> Download Free Starter
-                  Guide
-                </Button>
-              </Link>
-
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <h4 className="font-semibold text-gray-700 mb-2">
-                  Have questions?
-                </h4>
-                <p className="text-sm text-gray-600 mb-4">
-                  We're here to help you navigate the registration process.
+              <motion.div variants={itemVariants}>
+                <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
+                  Expert Guidance Every Step of the Way
+                </h2>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  Opening a children's home requires careful planning, extensive
+                  documentation, and a thorough understanding of Ofsted
+                  requirements. Our pre-registration services are designed for
+                  individuals and organizations who want to open a children's
+                  home but don't know where to start.
                 </p>
-                <Link
-                  to="/contact"
-                  className="text-navy-600 hover:text-navy-800 font-medium flex items-center"
-                >
-                  Contact Us <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  We'll guide you through every step of the process, from
+                  initial concept to successful registration, ensuring you have
+                  all the documentation, policies, and procedures in place to
+                  meet regulatory requirements.
+                </p>
+
+                <Card className="bg-gradient-to-br from-navy-50 to-navy-100 border-navy-200 border-2">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-heading text-navy-800 flex items-center">
+                      <Award className="h-6 w-6 mr-3 text-navy-600" />
+                      Why Choose Our Pre-Registration Support?
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {[
+                        "Expert guidance from professionals with years of experience",
+                        "Comprehensive, Ofsted-compliant documentation",
+                        "Personalized support tailored to your vision",
+                        "Increased chances of first-time approval",
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-navy-600 mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-navy-700">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          {/* Policy Packs Section */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="mb-16"
-          >
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl font-bold text-gray-800 mb-8 text-center"
-            >
-              Tailored Policy Packs
-            </motion.h2>
-
+            {/* Sidebar */}
             <motion.div
               variants={itemVariants}
-              className="bg-navy-50 border border-navy-200 rounded-lg p-8 mb-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-6"
             >
-              <p className="text-lg text-gray-700 mb-6">
-                At [Consultancy Name], we offer fully editable, up-to-date
-                policy packs tailored to your specific registration model:
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="flex items-center mb-3">
-                    <CheckCircle className="h-5 w-5 text-navy-500 mr-2" />
-                    <h3 className="font-semibold text-gray-800">
-                      Single Children's Homes
-                    </h3>
+              <Card className="glass-effect border-2 border-white/20 shadow-xl">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-heading text-gray-900">
+                    Ready to Get Started?
+                  </CardTitle>
+                  <CardDescription className="text-lg">
+                    Book a free consultation call to discuss your children's
+                    home plans and how we can help you achieve registration.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <Link to="/contact">
+                    <Button className="btn-primary w-full text-lg py-6">
+                      <Phone className="mr-3 h-5 w-5" />
+                      Book a Free Consultation
+                    </Button>
+                  </Link>
+                  <Link to="/resources">
+                    <Button className="btn-secondary w-full text-lg py-6">
+                      <Download className="mr-3 h-5 w-5" />
+                      Download Free Starter Guide
+                    </Button>
+                  </Link>
+                </CardContent>
+                <CardFooter className="pt-6 border-t border-gray-200">
+                  <div className="w-full">
+                    <h4 className="font-semibold text-gray-800 mb-2">
+                      Have questions?
+                    </h4>
+                    <p className="text-gray-600 mb-4">
+                      We're here to help you navigate the registration process.
+                    </p>
+                    <Link
+                      to="/contact"
+                      className="text-navy-600 hover:text-navy-800 font-medium flex items-center group"
+                    >
+                      Contact Us
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
-                  <p className="text-gray-600">
-                    Everything you need for a solo-site setup
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="flex items-center mb-3">
-                    <CheckCircle className="h-5 w-5 text-navy-500 mr-2" />
-                    <h3 className="font-semibold text-gray-800">
-                      Multi-Building Children's Homes
-                    </h3>
-                  </div>
-                  <p className="text-gray-600">
-                    Including solo placement models, shared management
-                    structures, and fire strategy references
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="flex items-center mb-3">
-                    <CheckCircle className="h-5 w-5 text-navy-500 mr-2" />
-                    <h3 className="font-semibold text-gray-800">
-                      Supported Accommodation (16–17)
-                    </h3>
-                  </div>
-                  <p className="text-gray-600">
-                    Compliant with the new Ofsted framework, focused on support
-                    (not care), with all required policy and practice guidance
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Each pack includes:
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Safeguarding</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Behaviour management</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Missing from care</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Staff recruitment</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Data protection</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Fire safety</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Complaints & whistleblowing</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>Children's guide + SOP (Schedule 1 format)</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-navy-500 mr-2" />
-                    <span>…and more</span>
-                  </div>
-                </div>
-              </div>
+                </CardFooter>
+              </Card>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Services Section */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
-            className="mb-16"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20"
           >
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl font-bold text-gray-800 mb-8 text-center"
-            >
-              Our Pre-Registration Services
-            </motion.h2>
-
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <FileText className="h-10 w-10 text-navy-600 mb-2" />
-                  <CardTitle>Registration Application Support</CardTitle>
-                  <CardDescription>
-                    Expert guidance through the Ofsted application process
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Step-by-step application walkthrough</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Document preparation and review</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Application submission guidance</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <FileText className="h-10 w-10 text-navy-600 mb-2" />
-                  <CardTitle>Statement of Purpose Creation</CardTitle>
-                  <CardDescription>
-                    Comprehensive Schedule 1 documentation
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Tailored to your specific service model</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Ofsted-compliant formatting</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Regular updates and revisions</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Shield className="h-10 w-10 text-navy-600 mb-2" />
-                  <CardTitle>Policy & Procedure Pack</CardTitle>
-                  <CardDescription>
-                    20+ essential compliant policies
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Safeguarding and child protection</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Behavior management</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Health and safety procedures</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Users className="h-10 w-10 text-navy-600 mb-2" />
-                  <CardTitle>Children's Guide & Templates</CardTitle>
-                  <CardDescription>
-                    Child-friendly documentation
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Age-appropriate formats</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Customizable templates</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Location risk assessment templates</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Users className="h-10 w-10 text-navy-600 mb-2" />
-                  <CardTitle>RI & Manager Setup</CardTitle>
-                  <CardDescription>
-                    Support for key personnel requirements
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Role clarification and responsibilities</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Interview preparation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Fit person questionnaire guidance</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Building className="h-10 w-10 text-navy-600 mb-2" />
-                  <CardTitle>Company Structure & HR</CardTitle>
-                  <CardDescription>
-                    Organizational and staffing support
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Company structure guidance</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>HR templates and policies</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                      <span>Recruitment and staffing advice</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+            <motion.div variants={itemVariants} className="text-center mb-16">
+              <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
+                Our <span className="gradient-text">Pre-Registration</span>{" "}
+                Services
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Comprehensive support designed to get you registered
+                successfully
+              </p>
             </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="group"
+                >
+                  <Card className="h-full hover-lift border-0 shadow-lg hover:shadow-2xl bg-white">
+                    <CardHeader>
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <div className="text-white">{service.icon}</div>
+                      </div>
+                      <CardTitle className="text-xl font-heading">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-600">
+                        {service.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle className="h-4 w-4 text-emerald-500 mr-3 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Pricing Section */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
-            className="mb-16"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20"
           >
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl font-bold text-gray-800 mb-8 text-center"
-            >
-              Pre-Registration Packages
-            </motion.h2>
-
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            >
-              {packages.map((pkg, index) => (
-                <Card
-                  key={index}
-                  className={`bg-white shadow-md ${pkg.highlighted ? "border-2 border-navy-500 relative" : ""}`}
-                >
-                  {pkg.highlighted && (
-                    <div className="absolute top-0 right-0 bg-navy-500 text-white px-3 py-1 text-sm font-medium rounded-bl-lg">
-                      Most Popular
-                    </div>
-                  )}
-                  <CardHeader>
-                    <CardTitle>{pkg.title}</CardTitle>
-                    <CardDescription>{pkg.description}</CardDescription>
-                    <div className="mt-4">
-                      <span className="text-3xl font-bold text-gray-800">
-                        {pkg.price}
-                      </span>
-                      {pkg.title !== "Full Setup Package" && (
-                        <span className="text-gray-500"> onwards</span>
-                      )}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-1" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardFooter>
-                    <Link to="/contact">
-                      <Button
-                        className={`w-full ${pkg.highlighted ? "bg-navy-800 hover:bg-gray-100" : ""}`}
-                      >
-                        Choose This Package
-                      </Button>
-                    </Link>
-                  </CardFooter>
-                </Card>
-              ))}
+            <motion.div variants={itemVariants} className="text-center mb-16">
+              <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
+                Choose Your <span className="gradient-text">Package</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Flexible packages designed to meet your specific needs and
+                budget
+              </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="text-center mt-8">
-              <p className="text-gray-600 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {packages.map((pkg, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className={`relative group ${pkg.highlighted ? "md:-mt-8" : ""}`}
+                >
+                  <Card
+                    className={`h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden ${
+                      pkg.highlighted
+                        ? "bg-gradient-to-br from-navy-600 to-navy-700 text-white transform scale-105"
+                        : "bg-white hover-lift"
+                    }`}
+                  >
+                    {pkg.highlighted && (
+                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-mustard-400 to-mustard-500 text-navy-900 text-center py-3 font-semibold">
+                        Most Popular
+                      </div>
+                    )}
+
+                    <CardHeader className={pkg.highlighted ? "pt-16" : "pt-8"}>
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${pkg.gradient} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <Zap className="h-8 w-8 text-white" />
+                      </div>
+                      <CardTitle
+                        className={`text-2xl font-heading text-center ${
+                          pkg.highlighted ? "text-white" : "text-gray-900"
+                        }`}
+                      >
+                        {pkg.title}
+                      </CardTitle>
+                      <CardDescription
+                        className={`text-center ${
+                          pkg.highlighted ? "text-navy-100" : "text-gray-600"
+                        }`}
+                      >
+                        {pkg.description}
+                      </CardDescription>
+                      <div className="text-center mt-6">
+                        <span
+                          className={`text-4xl font-bold ${
+                            pkg.highlighted ? "text-white" : "text-gray-900"
+                          }`}
+                        >
+                          {pkg.price}
+                        </span>
+                        {pkg.title !== "Full Setup Package" && (
+                          <span
+                            className={
+                              pkg.highlighted
+                                ? "text-navy-200"
+                                : "text-gray-500"
+                            }
+                          >
+                            {" "}
+                            onwards
+                          </span>
+                        )}
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-3">
+                        {pkg.features.map((feature, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle
+                              className={`h-5 w-5 mr-3 mt-0.5 flex-shrink-0 ${
+                                pkg.highlighted
+                                  ? "text-mustard-400"
+                                  : "text-emerald-500"
+                              }`}
+                            />
+                            <span
+                              className={
+                                pkg.highlighted
+                                  ? "text-navy-100"
+                                  : "text-gray-700"
+                              }
+                            >
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                    <CardFooter className="pt-6">
+                      <Link to="/contact" className="w-full">
+                        <Button
+                          className={`w-full py-6 text-lg font-semibold transition-all duration-300 ${
+                            pkg.highlighted
+                              ? "bg-white text-navy-700 hover:bg-gray-100"
+                              : "btn-primary"
+                          }`}
+                        >
+                          Choose This Package
+                        </Button>
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div variants={itemVariants} className="text-center mt-12">
+              <p className="text-lg text-gray-600 mb-6">
                 Need something more tailored to your specific requirements?
               </p>
               <Link to="/contact">
-                <Button variant="outline">Request Custom Package</Button>
+                <Button className="btn-secondary text-lg px-8 py-4">
+                  Request Custom Package
+                </Button>
               </Link>
             </motion.div>
           </motion.div>
@@ -604,249 +514,303 @@ const PreRegistration = () => {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20"
           >
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl font-bold text-gray-800 mb-8 text-center"
-            >
-              Downloadable Resources
-            </motion.h2>
+            <motion.div variants={itemVariants} className="text-center mb-16">
+              <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
+                <span className="gradient-text">Free</span> & Premium Resources
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Download essential templates and guides to get started
+              </p>
+            </motion.div>
 
-            <motion.div variants={itemVariants}>
-              <Tabs defaultValue="free" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
-                  <TabsTrigger value="free">Free Resources</TabsTrigger>
-                  <TabsTrigger value="premium">Premium Resources</TabsTrigger>
-                </TabsList>
+            <Tabs defaultValue="free" className="w-full">
+              <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 h-14">
+                <TabsTrigger value="free" className="text-lg font-semibold">
+                  Free Resources
+                </TabsTrigger>
+                <TabsTrigger value="premium" className="text-lg font-semibold">
+                  Premium Resources
+                </TabsTrigger>
+              </TabsList>
 
-                <TabsContent value="free" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {resources
-                      .filter((r) => r.free)
-                      .map((resource, index) => (
-                        <Card
-                          key={index}
-                          className="bg-white shadow-sm hover:shadow-md transition-shadow"
-                        >
+              <TabsContent value="free" className="mt-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {resources
+                    .filter((r) => r.free)
+                    .map((resource, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <Card className="hover-lift border-0 shadow-lg hover:shadow-xl bg-white h-full">
                           <CardHeader>
-                            <CardTitle className="text-lg">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center mb-4">
+                              <FileText className="h-6 w-6 text-white" />
+                            </div>
+                            <CardTitle className="text-xl font-heading">
                               {resource.title}
                             </CardTitle>
-                            <CardDescription>
+                            <CardDescription className="text-gray-600">
                               {resource.description}
                             </CardDescription>
                           </CardHeader>
                           <CardFooter>
-                            <Link to="/resources">
-                              <Button variant="outline" className="w-full">
-                                <Download className="mr-2 h-4 w-4" /> Download
-                                Free
+                            <Link to="/resources" className="w-full">
+                              <Button className="btn-primary w-full">
+                                <Download className="mr-2 h-4 w-4" />
+                                Download Free
                               </Button>
                             </Link>
                           </CardFooter>
                         </Card>
-                      ))}
-                  </div>
-                </TabsContent>
+                      </motion.div>
+                    ))}
+                </div>
+              </TabsContent>
 
-                <TabsContent value="premium" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {resources
-                      .filter((r) => !r.free)
-                      .map((resource, index) => (
-                        <Card
-                          key={index}
-                          className="bg-white shadow-sm hover:shadow-md transition-shadow"
-                        >
+              <TabsContent value="premium" className="mt-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {resources
+                    .filter((r) => !r.free)
+                    .map((resource, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <Card className="hover-lift border-0 shadow-lg hover:shadow-xl bg-white h-full">
                           <CardHeader>
-                            <CardTitle className="text-lg">
+                            <div className="flex justify-between items-start mb-4">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-mustard-500 to-mustard-600 flex items-center justify-center">
+                                <FileText className="h-6 w-6 text-white" />
+                              </div>
+                              <Badge className="bg-mustard-100 text-mustard-800 font-semibold">
+                                {resource.price}
+                              </Badge>
+                            </div>
+                            <CardTitle className="text-xl font-heading">
                               {resource.title}
                             </CardTitle>
-                            <CardDescription>
+                            <CardDescription className="text-gray-600">
                               {resource.description}
                             </CardDescription>
-                            <div className="mt-2 font-semibold text-gray-800">
-                              {resource.price}
-                            </div>
                           </CardHeader>
                           <CardFooter>
-                            <Link to="/contact">
-                              <Button className="w-full bg-navy-800 hover:bg-gray-100">
+                            <Link to="/contact" className="w-full">
+                              <Button className="btn-secondary w-full">
                                 Purchase Now
                               </Button>
                             </Link>
                           </CardFooter>
                         </Card>
-                      ))}
-                  </div>
-                </TabsContent>
-              </Tabs>
+                      </motion.div>
+                    ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </motion.div>
+
+          {/* FAQ Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <motion.div variants={itemVariants} className="text-center mb-16">
+              <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
+                Frequently Asked{" "}
+                <span className="gradient-text">Questions</span>
+              </h2>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto space-y-6">
+              {[
+                {
+                  question:
+                    "How long does the registration process typically take?",
+                  answer:
+                    "The registration process for a children's home typically takes 16-26 weeks from submission to approval, depending on the completeness of your application and Ofsted's current processing times. Our support can help streamline this process and avoid common delays.",
+                },
+                {
+                  question:
+                    "What qualifications do I need to open a children's home?",
+                  answer:
+                    "The Registered Manager must have a Level 5 Diploma in Leadership and Management for Residential Childcare (or equivalent) and relevant experience. The Responsible Individual should have appropriate experience and understanding of children's social care. We can provide detailed guidance on these requirements.",
+                },
+                {
+                  question: "Can you help with finding a suitable property?",
+                  answer:
+                    "While we don't directly source properties, we can advise on the requirements and considerations for selecting an appropriate location for your children's home, including conducting location risk assessments and advising on necessary adaptations to meet regulatory standards.",
+                },
+              ].map((faq, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="bg-gray-50 hover:bg-gray-100 transition-colors duration-300 border-0">
+                    <CardHeader>
+                      <CardTitle className="text-xl font-heading text-gray-900 flex items-start">
+                        <HelpCircle className="h-6 w-6 text-navy-500 mr-3 mt-1 flex-shrink-0" />
+                        {faq.question}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-700 leading-relaxed pl-9">
+                        {faq.answer}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div variants={itemVariants} className="text-center mt-12">
+              <Link
+                to="/contact"
+                className="text-navy-600 hover:text-navy-800 font-medium flex items-center justify-center group text-lg"
+              >
+                Have more questions? Contact us
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gray-50 py-16 px-4">
-        <div className="container mx-auto max-w-6xl text-center">
+      {/* Testimonials Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              Ready to Start Your Children's Home Journey?
+            <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
+              Success <span className="gradient-text">Stories</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Take the first step towards opening your children's home with
-              expert guidance and support.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Hear from providers who've successfully registered with our
+              support
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                name: "Jane Doe",
+                role: "Registered Manager, Sunshine Children's Home",
+                content:
+                  "The pre-registration support was invaluable. The team guided us through every step of the process, and our application was approved on the first submission. The policy pack saved us months of work!",
+                rating: 5,
+              },
+              {
+                name: "Michael Smith",
+                role: "Director, New Horizons Care",
+                content:
+                  "As someone new to the sector, I was overwhelmed by the registration requirements. This service broke everything down into manageable steps and provided all the documentation I needed. Highly recommended!",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border-0 h-full">
+                  <CardHeader>
+                    <div className="flex justify-center mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 text-mustard-400 fill-current"
+                        />
+                      ))}
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <blockquote className="text-gray-700 text-lg leading-relaxed mb-6 italic">
+                      "{testimonial.content}"
+                    </blockquote>
+                    <div className="flex items-center">
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-navy-500 to-navy-600 flex items-center justify-center text-white font-bold text-lg mr-4">
+                        {testimonial.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-gray-600">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-navy-800 via-navy-700 to-navy-800 text-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -top-40 -right-40 w-80 h-80 bg-mustard-400 rounded-full"
+          />
+        </div>
+
+        <div className="relative z-10 container mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8">
+              Ready to Start Your{" "}
+              <span className="text-mustard-400">Journey?</span>
+            </h2>
+            <p className="text-xl mb-12 leading-relaxed text-navy-100 max-w-3xl mx-auto">
+              Take the first step towards opening your children's home with
+              expert guidance and support that gets results.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link to="/contact">
-                <Button className="bg-navy-800 hover:bg-gray-100 text-lg py-6 px-8">
+                <Button className="bg-white text-navy-800 hover:bg-gray-100 font-semibold px-10 py-6 text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                   Book a Compliance Discovery Call
                 </Button>
               </Link>
               <Link to="/resources">
-                <Button variant="outline" className="text-lg py-6 px-8">
+                <Button className="border-2 border-white text-white hover:bg-white hover:text-navy-800 font-semibold px-10 py-6 text-lg rounded-xl transition-all duration-300 transform hover:scale-105">
                   Download Free Registration Guide
                 </Button>
               </Link>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Frequently Asked Questions
-          </h2>
-
-          <div className="space-y-6">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center">
-                <HelpCircle className="h-5 w-5 text-navy-500 mr-2" />
-                How long does the registration process typically take?
-              </h3>
-              <p className="text-gray-600">
-                The registration process for a children's home typically takes
-                16-26 weeks from submission to approval, depending on the
-                completeness of your application and Ofsted's current processing
-                times. Our support can help streamline this process and avoid
-                common delays.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center">
-                <HelpCircle className="h-5 w-5 text-navy-500 mr-2" />
-                What qualifications do I need to open a children's home?
-              </h3>
-              <p className="text-gray-600">
-                The Registered Manager must have a Level 5 Diploma in Leadership
-                and Management for Residential Childcare (or equivalent) and
-                relevant experience. The Responsible Individual should have
-                appropriate experience and understanding of children's social
-                care. We can provide detailed guidance on these requirements.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center">
-                <HelpCircle className="h-5 w-5 text-navy-500 mr-2" />
-                Can you help with finding a suitable property?
-              </h3>
-              <p className="text-gray-600">
-                While we don't directly source properties, we can advise on the
-                requirements and considerations for selecting an appropriate
-                location for your children's home, including conducting location
-                risk assessments and advising on necessary adaptations to meet
-                regulatory standards.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/contact"
-              className="text-navy-600 hover:text-navy-800 font-medium flex items-center justify-center"
-            >
-              Have more questions? Contact us{" "}
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="bg-navy-50 py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">
-            What Our Clients Say
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-white shadow-md">
-              <CardContent className="pt-6">
-                <p className="italic text-gray-600 mb-6">
-                  "The pre-registration support was invaluable. The team guided
-                  us through every step of the process, and our application was
-                  approved on the first submission. The policy pack saved us
-                  months of work!"
-                </p>
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold text-xl mr-4">
-                    JD
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Jane Doe</h4>
-                    <p className="text-sm text-gray-500">
-                      Registered Manager, Sunshine Children's Home
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white shadow-md">
-              <CardContent className="pt-6">
-                <p className="italic text-gray-600 mb-6">
-                  "As someone new to the sector, I was overwhelmed by the
-                  registration requirements. This service broke everything down
-                  into manageable steps and provided all the documentation I
-                  needed. Highly recommended!"
-                </p>
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold text-xl mr-4">
-                    MS
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Michael Smith</h4>
-                    <p className="text-sm text-gray-500">
-                      Director, New Horizons Care
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="bg-navy-800 text-white py-12 px-4">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
-            Start Your Children's Home Registration Today
-          </h2>
-          <Link to="/contact">
-            <Button className="bg-white text-navy-700 hover:bg-gray-100 text-lg py-6 px-8">
-              Book Your Free Consultation
-            </Button>
-          </Link>
         </div>
       </section>
     </div>
