@@ -145,7 +145,7 @@ const Resources = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-500 to-teal-700 py-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="bg-gradient-to-r from-navy-700 to-navy-900 py-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -248,11 +248,11 @@ const Resources = () => {
                 {premiumResources.map((resource, index) => (
                   <Card
                     key={index}
-                    className="hover:shadow-lg transition-shadow duration-300 border-2 border-teal-100"
+                    className="hover:shadow-lg transition-shadow duration-300 border-2 border-navy-100"
                   >
                     <CardHeader>
                       <div className="flex items-center justify-between mb-2">
-                        <Badge className="bg-teal-100 text-teal-800">
+                        <Badge className="bg-navy-100 text-navy-800">
                           {resource.type}
                         </Badge>
                         <div className="text-right">
@@ -273,7 +273,7 @@ const Resources = () => {
                       <ul className="space-y-2">
                         {resource.features.map((feature, i) => (
                           <li key={i} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-teal-500 mr-2 mt-0.5 shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-navy-500 mr-2 mt-0.5 shrink-0" />
                             <span className="text-sm">{feature}</span>
                           </li>
                         ))}
@@ -281,7 +281,7 @@ const Resources = () => {
                     </CardContent>
                     <CardFooter>
                       <Button
-                        className="w-full bg-teal-600 hover:bg-teal-700"
+                        className="w-full bg-navy-800 hover:bg-navy-900"
                         onClick={() => handlePurchase(resource.title)}
                       >
                         Purchase Now
@@ -311,8 +311,8 @@ const Resources = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center">
               <CardHeader>
-                <div className="mx-auto bg-teal-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                  <CheckCircle className="h-8 w-8 text-teal-600" />
+                <div className="mx-auto bg-navy-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                  <CheckCircle className="h-8 w-8 text-navy-600" />
                 </div>
                 <CardTitle>Ofsted Compliant</CardTitle>
               </CardHeader>
@@ -358,7 +358,7 @@ const Resources = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-teal-700 text-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-navy-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Need Something Custom?</h2>
           <p className="text-xl mb-8">
@@ -367,7 +367,7 @@ const Resources = () => {
           </p>
           <Button
             size="lg"
-            className="bg-white text-teal-700 hover:bg-gray-100"
+            className="bg-white text-navy-800 hover:bg-gray-100"
           >
             Contact Us for Custom Resources
           </Button>

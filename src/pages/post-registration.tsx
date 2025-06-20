@@ -83,7 +83,7 @@ const PostRegistration = () => {
       title: "Ongoing QA Mentorship",
       description:
         "Regular support to maintain and improve quality standards across your service.",
-      icon: <Calendar className="h-8 w-8 text-teal-500" />,
+      icon: <Calendar className="h-8 w-8 text-navy-500" />,
     },
   ];
 
@@ -179,12 +179,12 @@ const PostRegistration = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-teal-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-navy-50 to-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <Badge
               variant="outline"
-              className="mb-4 bg-teal-100 text-teal-800 border-teal-200"
+              className="mb-4 bg-navy-100 text-navy-800 border-navy-200"
             >
               Post-Registration Support
             </Badge>
@@ -206,7 +206,7 @@ const PostRegistration = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-teal-600 text-teal-600 hover:bg-teal-50"
+                  className="border-teal-600 text-navy-600 hover:bg-teal-50"
                 >
                   Join Our Compliance Partner Plan
                 </Button>
@@ -238,7 +238,7 @@ const PostRegistration = () => {
           >
             {services.map((service, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-t-4 border-t-teal-500">
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-t-4 border-t-navy-500">
                   <CardHeader>
                     <div className="mb-4">{service.icon}</div>
                     <CardTitle>{service.title}</CardTitle>
@@ -269,7 +269,7 @@ const PostRegistration = () => {
             {pricingPackages.map((pkg, index) => (
               <Card
                 key={index}
-                className={`h-full ${pkg.highlighted ? "border-2 border-teal-500 shadow-lg" : ""}`}
+                className={`h-full ${pkg.highlighted ? "border-2 border-navy-500 shadow-lg" : ""}`}
               >
                 <CardHeader>
                   <CardTitle className="text-2xl">{pkg.title}</CardTitle>
@@ -291,7 +291,7 @@ const PostRegistration = () => {
                   <ul className="space-y-3">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-teal-500 mr-2 shrink-0 mt-0.5" />
+                        <CheckCircle className="h-5 w-5 text-navy-500 mr-2 shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -300,7 +300,7 @@ const PostRegistration = () => {
                 <CardFooter>
                   <Link to="/contact">
                     <Button
-                      className={`w-full ${pkg.highlighted ? "bg-teal-600 hover:bg-teal-700" : ""}`}
+                      className={`w-full ${pkg.highlighted ? "bg-navy-800 hover:bg-navy-900" : ""}`}
                     >
                       Select Package
                     </Button>
@@ -342,11 +342,11 @@ const PostRegistration = () => {
                 <CardContent className="pt-6">
                   <div className="flex justify-center mb-4">
                     <svg
-                      className="h-8 w-8 text-teal-500"
+                      className="h-8 w-8 text-navy-500"
                       fill="currentColor"
                       viewBox="0 0 32 32"
                     >
-                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104-6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.855-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                     </svg>
                   </div>
                   <p className="text-gray-700 mb-6 italic text-center">
@@ -438,12 +438,12 @@ const PostRegistration = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-teal-700 text-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-navy-800 text-white">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
             Ready to improve your service?
           </h2>
-          <p className="text-xl mb-8 text-teal-100">
+          <p className="text-xl mb-8 text-navy-100">
             Whether you're facing challenges or simply want to maintain high
             standards, we're here to help.
           </p>
@@ -451,7 +451,7 @@ const PostRegistration = () => {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-white text-teal-700 hover:bg-teal-50"
+                className="bg-white text-navy-800 hover:bg-navy-50"
               >
                 Request Urgent Help
               </Button>
@@ -460,7 +460,7 @@ const PostRegistration = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-teal-600"
+                className="border-white text-white hover:bg-navy-700"
               >
                 Schedule a Consultation
               </Button>
@@ -561,7 +561,7 @@ const PostRegistration = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <div className="flex items-center text-teal-600">
+                  <div className="flex items-center text-navy-600">
                     <span>Learn more</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </div>
@@ -577,7 +577,7 @@ const PostRegistration = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <div className="flex items-center text-teal-600">
+                  <div className="flex items-center text-navy-600">
                     <span>Learn more</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </div>
@@ -601,7 +601,7 @@ const PostRegistration = () => {
             children's home.
           </p>
           <Link to="/contact">
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
+            <Button size="lg" className="bg-navy-800 hover:bg-navy-900">
               Contact Us Today
             </Button>
           </Link>

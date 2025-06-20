@@ -31,7 +31,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-500 to-teal-700 py-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="bg-gradient-to-r from-navy-700 to-navy-900 py-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-teal-600 hover:bg-teal-700"
+                  className="w-full bg-navy-800 hover:bg-navy-900"
                 >
                   <Send className="mr-2 h-4 w-4" />
                   Send Message
@@ -147,7 +147,7 @@ const Contact = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <Phone className="h-5 w-5 mr-2 text-teal-600" />
+                      <Phone className="h-5 w-5 mr-2 text-navy-600" />
                       Phone
                     </CardTitle>
                   </CardHeader>
@@ -162,7 +162,7 @@ const Contact = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <Mail className="h-5 w-5 mr-2 text-teal-600" />
+                      <Mail className="h-5 w-5 mr-2 text-navy-600" />
                       Email
                     </CardTitle>
                   </CardHeader>
@@ -179,7 +179,7 @@ const Contact = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <MapPin className="h-5 w-5 mr-2 text-teal-600" />
+                      <MapPin className="h-5 w-5 mr-2 text-navy-600" />
                       Location
                     </CardTitle>
                   </CardHeader>
@@ -196,7 +196,7 @@ const Contact = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <Clock className="h-5 w-5 mr-2 text-teal-600" />
+                      <Clock className="h-5 w-5 mr-2 text-navy-600" />
                       Emergency Support
                     </CardTitle>
                   </CardHeader>
@@ -269,7 +269,7 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-teal-700 text-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-navy-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8">
@@ -279,7 +279,7 @@ const Contact = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-teal-700 hover:bg-gray-100"
+              className="bg-white text-navy-800 hover:bg-gray-100"
             >
               <Phone className="mr-2 h-4 w-4" />
               Call Now: +44 (0) 123 456 7890
@@ -287,7 +287,7 @@ const Contact = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-teal-600"
+              className="border-white text-white hover:bg-navy-700"
             >
               <Mail className="mr-2 h-4 w-4" />
               Email Us

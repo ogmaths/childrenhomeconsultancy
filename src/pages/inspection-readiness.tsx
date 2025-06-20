@@ -54,31 +54,31 @@ const InspectionReadiness = () => {
       title: "Mock Inspections",
       description:
         "Comprehensive mock inspections based on the Social Care Common Inspection Framework (SCCIF) to prepare your team for the real thing.",
-      icon: <ClipboardCheck className="h-10 w-10 text-teal-600" />,
+      icon: <ClipboardCheck className="h-10 w-10 text-navy-600" />,
     },
     {
       title: "Reg 44 and 45 Support",
       description:
         "Expert writing, reviewing, and auditing of Regulation 44 and 45 reports to ensure compliance with Ofsted requirements.",
-      icon: <FileText className="h-10 w-10 text-teal-600" />,
+      icon: <FileText className="h-10 w-10 text-navy-600" />,
     },
     {
       title: "Staff File Audits",
       description:
         "Thorough audits of staff files and safer recruitment coaching to ensure all documentation meets regulatory standards.",
-      icon: <Users className="h-10 w-10 text-teal-600" />,
+      icon: <Users className="h-10 w-10 text-navy-600" />,
     },
     {
       title: "Staff Training Plans",
       description:
         "Customized training plans and compliance tracker tools to keep your team up-to-date with required qualifications.",
-      icon: <BookOpen className="h-10 w-10 text-teal-600" />,
+      icon: <BookOpen className="h-10 w-10 text-navy-600" />,
     },
     {
       title: "Quality Standards Planning",
       description:
         "Strategic planning for gathering and presenting evidence that meets Ofsted's Quality Standards.",
-      icon: <Check className="h-10 w-10 text-teal-600" />,
+      icon: <Check className="h-10 w-10 text-navy-600" />,
     },
   ];
 
@@ -156,7 +156,7 @@ const InspectionReadiness = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-500 to-teal-700 py-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="bg-gradient-to-r from-navy-700 to-navy-900 py-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -175,7 +175,7 @@ const InspectionReadiness = () => {
               <Link to="/contact">
                 <Button
                   size="lg"
-                  className="bg-white text-teal-700 hover:bg-gray-100"
+                  className="bg-white text-navy-800 hover:bg-gray-100"
                 >
                   Book a Mock Inspection
                 </Button>
@@ -184,7 +184,7 @@ const InspectionReadiness = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-teal-600"
+                  className="border-navy-600 text-navy-600 hover:bg-navy-50"
                 >
                   Schedule a QA Health Check
                 </Button>
@@ -249,16 +249,16 @@ const InspectionReadiness = () => {
             {pricingPackages.map((pkg, index) => (
               <Card
                 key={index}
-                className={`h-full ${pkg.popular ? "border-teal-500 shadow-lg" : ""}`}
+                className={`h-full ${pkg.popular ? "border-navy-500 shadow-lg" : ""}`}
               >
                 <CardHeader>
                   {pkg.popular && (
-                    <Badge className="mb-2 self-start bg-teal-500">
+                    <Badge className="mb-2 self-start bg-navy-500">
                       Most Popular
                     </Badge>
                   )}
                   <CardTitle>{pkg.title}</CardTitle>
-                  <div className="text-3xl font-bold text-teal-700">
+                  <div className="text-3xl font-bold text-navy-700">
                     {pkg.price}
                   </div>
                   <CardDescription>{pkg.description}</CardDescription>
@@ -267,7 +267,7 @@ const InspectionReadiness = () => {
                   <ul className="space-y-2">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <Check className="h-5 w-5 text-teal-500 mr-2 shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-navy-500 mr-2 shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -275,7 +275,7 @@ const InspectionReadiness = () => {
                 </CardContent>
                 <CardFooter>
                   <Link to="/contact">
-                    <Button className="w-full bg-teal-600 hover:bg-teal-700">
+                    <Button className="w-full bg-navy-800 hover:bg-navy-900">
                       Get Started
                     </Button>
                   </Link>
@@ -290,7 +290,7 @@ const InspectionReadiness = () => {
             <Link to="/contact">
               <Button
                 variant="outline"
-                className="border-teal-600 text-teal-600 hover:bg-teal-50"
+                className="border-navy-600 text-navy-600 hover:bg-navy-50"
               >
                 Contact Us for Custom Solutions
               </Button>
@@ -319,7 +319,7 @@ const InspectionReadiness = () => {
                     >
                       <CardHeader>
                         <CardTitle className="flex items-center">
-                          <FileText className="h-5 w-5 mr-2 text-teal-600" />
+                          <FileText className="h-5 w-5 mr-2 text-navy-600" />
                           {resource.title}
                         </CardTitle>
                       </CardHeader>
@@ -351,7 +351,7 @@ const InspectionReadiness = () => {
                     >
                       <CardHeader>
                         <CardTitle className="flex items-center">
-                          <FileText className="h-5 w-5 mr-2 text-teal-600" />
+                          <FileText className="h-5 w-5 mr-2 text-navy-600" />
                           {resource.title}
                         </CardTitle>
                       </CardHeader>
@@ -360,7 +360,7 @@ const InspectionReadiness = () => {
                       </CardContent>
                       <CardFooter>
                         <Link to="/contact">
-                          <Button className="w-full bg-teal-600 hover:bg-teal-700 flex items-center justify-center">
+                          <Button className="w-full bg-navy-800 hover:bg-navy-900 flex items-center justify-center">
                             <Download className="h-4 w-4 mr-2" /> Purchase (£25)
                           </Button>
                         </Link>
@@ -371,7 +371,7 @@ const InspectionReadiness = () => {
             </TabsContent>
           </Tabs>
           <div className="mt-8 text-center">
-            <Button variant="link" className="text-teal-600">
+            <Button variant="link" className="text-navy-600">
               View All Resources <ArrowRight className="h-4 w-4 ml-1" />
             </Button>
           </div>
@@ -392,7 +392,7 @@ const InspectionReadiness = () => {
                   and action plan."
                 </p>
                 <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-teal-200 flex items-center justify-center text-teal-700 font-bold mr-3">
+                  <div className="h-10 w-10 rounded-full bg-navy-200 flex items-center justify-center text-navy-700 font-bold mr-3">
                     JD
                   </div>
                   <div>
@@ -412,7 +412,7 @@ const InspectionReadiness = () => {
                   standards and given us confidence in our compliance."
                 </p>
                 <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-teal-200 flex items-center justify-center text-teal-700 font-bold mr-3">
+                  <div className="h-10 w-10 rounded-full bg-navy-200 flex items-center justify-center text-navy-700 font-bold mr-3">
                     MS
                   </div>
                   <div>
@@ -428,7 +428,7 @@ const InspectionReadiness = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-teal-50 rounded-xl p-8 text-center">
+        <section className="bg-navy-50 rounded-xl p-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Ready to Prepare for Your Inspection?
           </h2>
@@ -439,7 +439,7 @@ const InspectionReadiness = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
-              <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
+              <Button size="lg" className="bg-navy-800 hover:bg-navy-900">
                 <Calendar className="h-4 w-4 mr-2" /> Book a Mock Inspection
               </Button>
             </Link>
@@ -447,7 +447,7 @@ const InspectionReadiness = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-teal-600 text-teal-600 hover:bg-teal-50"
+                className="border-navy-600 text-navy-600 hover:bg-navy-50"
               >
                 Contact Us for More Information
               </Button>
@@ -523,7 +523,7 @@ const InspectionReadiness = () => {
             ensure your children's home meets all regulatory requirements.
           </p>
           <Link to="/contact">
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
+            <Button size="lg" className="bg-navy-800 hover:bg-navy-900">
               Contact Us Today
             </Button>
           </Link>

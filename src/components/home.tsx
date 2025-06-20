@@ -47,10 +47,10 @@ const UserPathCard = ({
     switch (color) {
       case "teal":
         return {
-          bg: "bg-teal-100",
-          text: "text-teal-600",
-          hover: "hover:bg-teal-600",
-          border: "border-teal-200",
+          bg: "bg-navy-100",
+          text: "text-navy-600",
+          hover: "hover:bg-navy-600",
+          border: "border-navy-200",
         };
       case "blue":
         return {
@@ -68,10 +68,10 @@ const UserPathCard = ({
         };
       default:
         return {
-          bg: "bg-teal-100",
-          text: "text-teal-600",
-          hover: "hover:bg-teal-600",
-          border: "border-teal-200",
+          bg: "bg-navy-100",
+          text: "text-navy-600",
+          hover: "hover:bg-navy-600",
+          border: "border-navy-200",
         };
     }
   };
@@ -130,32 +130,17 @@ const Home = () => {
   // Sample testimonials data
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Children's Home Manager",
+      name: "GROMODEL CARE",
+      role: "Children's Home Provider",
       content:
-        "The guidance and support provided was invaluable during our registration process. We achieved 'Good' on our first inspection!",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-    },
-    {
-      name: "Michael Thompson",
-      role: "Responsible Individual",
-      content:
-        "After receiving an 'Inadequate' rating, their turnaround support helped us achieve 'Good' within 6 months. Highly recommended.",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
-    },
-    {
-      name: "Priya Patel",
-      role: "New Home Owner",
-      content:
-        "The pre-registration package made the complex process manageable. All our policies were Ofsted-ready and saved us countless hours.",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya",
+        "The consultancy support we received was instrumental in helping us secure Ofsted registration for our multi-building children's home. From tailored policies to inspection prep, every resource was clear, compliant, and practical. We were especially impressed by the knowledge of the regulations and how personalised the support felt — all without the pressure of branding or promotion. Highly recommended for any provider looking to get it right from day one.",
     },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-teal-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-navy-50 to-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial="hidden"
@@ -183,7 +168,7 @@ const Home = () => {
               className="flex flex-col sm:flex-row justify-center gap-4 pt-6"
             >
               <Link to="/contact">
-                <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
+                <Button size="lg" className="bg-navy-800 hover:bg-navy-900">
                   <CalendarIcon className="mr-2 h-5 w-5" /> Book a Free
                   Consultation
                 </Button>
@@ -192,7 +177,7 @@ const Home = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-teal-600 text-teal-600 hover:bg-teal-50"
+                  className="border-navy-800 text-navy-800 hover:bg-navy-50"
                 >
                   <HomeIcon className="mr-2 h-5 w-5" /> Download Starter Pack
                 </Button>
@@ -257,8 +242,8 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="text-center">
-                <div className="mx-auto bg-teal-100 p-3 rounded-full w-16 h-16 flex items-center justify-center">
-                  <CheckCircle2Icon className="h-8 w-8 text-teal-600" />
+                <div className="mx-auto bg-navy-100 p-3 rounded-full w-16 h-16 flex items-center justify-center">
+                  <CheckCircle2Icon className="h-8 w-8 text-navy-600" />
                 </div>
                 <CardTitle className="mt-4">Ofsted Experience</CardTitle>
               </CardHeader>
@@ -315,29 +300,24 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}
                 className="bg-white shadow-md hover:shadow-lg transition-shadow"
               >
                 <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full"
-                    />
-                    <div>
-                      <CardTitle className="text-lg">
-                        {testimonial.name}
-                      </CardTitle>
-                      <CardDescription>{testimonial.role}</CardDescription>
-                    </div>
+                  <div className="text-center">
+                    <CardTitle className="text-lg">
+                      {testimonial.name}
+                    </CardTitle>
+                    <CardDescription>{testimonial.role}</CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">"{testimonial.content}"</p>
+                  <p className="text-gray-600 text-center">
+                    "{testimonial.content}"
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -346,7 +326,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-teal-700 text-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-navy-800 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold">Ready to Start Your Journey?</h2>
           <p className="mt-4 text-xl max-w-3xl mx-auto">
@@ -358,7 +338,7 @@ const Home = () => {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-white text-teal-700 hover:bg-gray-100"
+                className="bg-white text-navy-800 hover:bg-gray-100"
               >
                 <PhoneIcon className="mr-2 h-5 w-5" /> Schedule a Call
               </Button>
@@ -367,7 +347,7 @@ const Home = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-teal-600"
+                className="border-white text-white hover:bg-navy-700"
               >
                 <MailIcon className="mr-2 h-5 w-5" /> Contact Us
               </Button>
