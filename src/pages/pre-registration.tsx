@@ -26,7 +26,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { Badge } from "@/components/ui/badge";
 
 const PreRegistration = () => {
@@ -93,32 +93,6 @@ const PreRegistration = () => {
         "Unlimited support calls",
       ],
       gradient: "from-mustard-500 to-mustard-600",
-    },
-  ];
-
-  // Downloadable resources
-  const resources = [
-    {
-      title: "Registration Checklist",
-      description: "Step-by-step guide to the registration process",
-      free: true,
-    },
-    {
-      title: "Statement of Purpose Template",
-      description: "Basic template with guidance notes",
-      free: true,
-    },
-    {
-      title: "Location Risk Assessment Template",
-      description: "Comprehensive template with examples",
-      free: false,
-      price: "£49",
-    },
-    {
-      title: "Children's Guide Template",
-      description: "Child-friendly format with customization options",
-      free: false,
-      price: "£39",
     },
   ];
 
@@ -508,115 +482,6 @@ const PreRegistration = () => {
                 </Button>
               </Link>
             </motion.div>
-          </motion.div>
-
-          {/* Resources Section */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-            <motion.div variants={itemVariants} className="text-center mb-16">
-              <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
-                <span className="gradient-text">Free</span> & Premium Resources
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Download essential templates and guides to get started
-              </p>
-            </motion.div>
-
-            <Tabs defaultValue="free" className="w-full">
-              <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 h-14">
-                <TabsTrigger value="free" className="text-lg font-semibold">
-                  Free Resources
-                </TabsTrigger>
-                <TabsTrigger value="premium" className="text-lg font-semibold">
-                  Premium Resources
-                </TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="free" className="mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {resources
-                    .filter((r) => r.free)
-                    .map((resource, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <Card className="hover-lift border-0 shadow-lg hover:shadow-xl bg-white h-full">
-                          <CardHeader>
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center mb-4">
-                              <FileText className="h-6 w-6 text-white" />
-                            </div>
-                            <CardTitle className="text-xl font-heading">
-                              {resource.title}
-                            </CardTitle>
-                            <CardDescription className="text-gray-600">
-                              {resource.description}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardFooter>
-                            <Link to="/resources" className="w-full">
-                              <Button className="btn-primary w-full">
-                                <Download className="mr-2 h-4 w-4" />
-                                Download Free
-                              </Button>
-                            </Link>
-                          </CardFooter>
-                        </Card>
-                      </motion.div>
-                    ))}
-                </div>
-              </TabsContent>
-
-              <TabsContent value="premium" className="mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {resources
-                    .filter((r) => !r.free)
-                    .map((resource, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <Card className="hover-lift border-0 shadow-lg hover:shadow-xl bg-white h-full">
-                          <CardHeader>
-                            <div className="flex justify-between items-start mb-4">
-                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-mustard-500 to-mustard-600 flex items-center justify-center">
-                                <FileText className="h-6 w-6 text-white" />
-                              </div>
-                              <Badge className="bg-mustard-100 text-mustard-800 font-semibold">
-                                {resource.price}
-                              </Badge>
-                            </div>
-                            <CardTitle className="text-xl font-heading">
-                              {resource.title}
-                            </CardTitle>
-                            <CardDescription className="text-gray-600">
-                              {resource.description}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardFooter>
-                            <Link to="/contact" className="w-full">
-                              <Button className="btn-secondary w-full">
-                                Purchase Now
-                              </Button>
-                            </Link>
-                          </CardFooter>
-                        </Card>
-                      </motion.div>
-                    ))}
-                </div>
-              </TabsContent>
-            </Tabs>
           </motion.div>
 
           {/* FAQ Section */}

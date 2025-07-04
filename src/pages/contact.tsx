@@ -1,6 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  CheckCircle,
+  Calendar,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -40,115 +48,103 @@ const Contact = () => {
             className="text-center"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Get in Touch
+              Book Your FREE Consultation
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              Ready to start your children's home journey or need support with
-              your existing service?
+              Schedule a complimentary 30-minute consultation to discuss your
+              children's home needs and how we can help you succeed.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Information */}
+      {/* Calendly Booking Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
+            {/* Calendly Embed */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Send us a Message
+                Schedule Your FREE 30-Minute Consultation
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input
-                      id="firstName"
-                      type="text"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input
-                      id="lastName"
-                      type="text"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
+              <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <div className="flex items-center mb-4">
+                  <Calendar className="h-6 w-6 text-navy-600 mr-3" />
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    What to Expect:
+                  </h3>
                 </div>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Personalized assessment of your needs</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Expert guidance on your next steps</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Clear roadmap for your children's home journey</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>No obligation - completely free</span>
+                  </li>
+                </ul>
+              </div>
 
-                <div>
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" required className="mt-1" />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" type="tel" className="mt-1" />
-                </div>
-
-                <div>
-                  <Label htmlFor="service">Service Interest</Label>
-                  <Select>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="pre-registration">
-                        Pre-Registration Support
-                      </SelectItem>
-                      <SelectItem value="inspection-readiness">
-                        Inspection Readiness
-                      </SelectItem>
-                      <SelectItem value="post-registration">
-                        Post-Registration Support
-                      </SelectItem>
-                      <SelectItem value="emergency">
-                        Emergency Support
-                      </SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    rows={5}
-                    required
-                    className="mt-1"
-                    placeholder="Tell us about your needs and how we can help..."
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-navy-800 hover:bg-navy-900"
-                >
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
-                </Button>
-              </form>
+              {/* Calendly Embed */}
+              <div className="bg-gray-50 rounded-xl p-4">
+                <iframe
+                  src="https://calendly.com/thrivecareconsultants-info/30min"
+                  width="100%"
+                  height="700"
+                  frameBorder="0"
+                  title="Schedule a Free Consultation"
+                  className="rounded-lg"
+                ></iframe>
+              </div>
             </div>
 
-            {/* Contact Information */}
+            {/* Alternative Contact Methods */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Contact Information
+                Other Ways to Reach Us
               </h2>
+
+              <div className="bg-gradient-to-br from-navy-50 to-navy-100 rounded-xl p-6 mb-8">
+                <h3 className="text-xl font-semibold text-navy-800 mb-4">
+                  Prefer to book by phone or email?
+                </h3>
+                <p className="text-navy-700 mb-4">
+                  No problem! Contact us directly and we'll schedule your free
+                  consultation.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="tel:+441234567890"
+                    className="flex items-center text-navy-700 hover:text-navy-900 font-medium"
+                  >
+                    <Phone className="h-5 w-5 mr-2" />
+                    +44 (0) 123 456 7890
+                  </a>
+                  <a
+                    href="mailto:info@thrivecareconsultants.co.uk"
+                    className="flex items-center text-navy-700 hover:text-navy-900 font-medium"
+                  >
+                    <Mail className="h-5 w-5 mr-2" />
+                    info@thrivecareconsultants.co.uk
+                  </a>
+                </div>
+              </div>
 
               <div className="space-y-6">
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <Phone className="h-5 w-5 mr-2 text-navy-600" />
-                      Phone
+                      Phone Support
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -163,12 +159,12 @@ const Contact = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <Mail className="h-5 w-5 mr-2 text-navy-600" />
-                      Email
+                      Email Support
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600">
-                      info@childrenshomeconsultancy.co.uk
+                      info@thrivecareconsultants.co.uk
                     </p>
                     <p className="text-sm text-gray-500 mt-1">
                       We typically respond within 24 hours
@@ -180,7 +176,7 @@ const Contact = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <MapPin className="h-5 w-5 mr-2 text-navy-600" />
-                      Location
+                      Service Area
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -273,25 +269,33 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8">
-            Don't wait - get the expert support you need for your children's
-            home today.
+            Book your FREE 30-minute consultation today and take the first step
+            towards your children's home success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-navy-800 hover:bg-gray-100"
+            <a
+              href="https://calendly.com/thrivecareconsultants-info/30min"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Phone className="mr-2 h-4 w-4" />
-              Call Now: +44 (0) 123 456 7890
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-navy-700"
-            >
-              <Mail className="mr-2 h-4 w-4" />
-              Email Us
-            </Button>
+              <Button
+                size="lg"
+                className="bg-white text-navy-800 hover:bg-gray-100"
+              >
+                <Calendar className="mr-2 h-4 w-4" />
+                Book FREE Consultation
+              </Button>
+            </a>
+            <a href="tel:+441234567890">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-navy-700"
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                Call Now: +44 (0) 123 456 7890
+              </Button>
+            </a>
           </div>
         </div>
       </section>
