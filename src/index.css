@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -74,7 +74,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     line-height: 1.6;
   }
   h1,
@@ -83,8 +83,8 @@
   h4,
   h5,
   h6 {
-    font-family: "DM Sans", sans-serif;
-    font-weight: 700;
+    font-family: "Merriweather", serif;
+    font-weight: 600;
     line-height: 1.2;
   }
 }

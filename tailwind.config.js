@@ -18,8 +18,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        heading: ["DM Sans", "sans-serif"],
+        sans: ["Source Sans Pro", "sans-serif"],
+        heading: ["Merriweather", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",

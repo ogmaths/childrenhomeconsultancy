@@ -63,10 +63,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="bg-gradient-to-br from-navy-600 to-navy-700 p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
-              <Home className="h-6 w-6 text-white" />
-            </div>
-            <div className="hidden sm:block">
+            <div>
               <h1
                 className={`text-xl font-heading font-bold transition-colors duration-300 ${
                   isScrolled ? "text-gray-900" : "text-white"

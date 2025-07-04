@@ -48,24 +48,6 @@ const Contact = () => {
               Schedule a complimentary 30-minute consultation to discuss your
               children's home needs and discover how we can help you succeed
             </p>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {[
-                { number: "30", label: "Minutes Free", suffix: "min" },
-                { number: "150+", label: "Homes Helped" },
-                { number: "98%", label: "Success Rate" },
-                { number: "24/7", label: "Support" },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-navy-600 mb-2">
-                    {stat.number}
-                    {stat.suffix || ""}
-                  </div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
