@@ -17,6 +17,7 @@ import {
   HomeIcon,
   MailIcon,
   PhoneIcon,
+  Phone,
   Lightbulb,
   ClipboardCheck,
   Building,
@@ -217,8 +218,7 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: 150, suffix: "+", label: "Homes Supported" },
-    { number: 98, suffix: "%", label: "Success Rate" },
+    { number: 10, suffix: "+", label: "Homes Supported" },
     { number: 5, suffix: "", label: "Years Experience" },
     { number: 24, suffix: "/7", label: "Support Available" },
   ];
@@ -309,10 +309,10 @@ const Home = () => {
                   Book a Free Consultation
                 </Button>
               </Link>
-              <Link to="/resources">
+              <Link to="/contact">
                 <Button className="btn-secondary text-lg px-10 py-6">
-                  <HomeIcon className="mr-3 h-6 w-6" />
-                  Download Starter Pack
+                  <Phone className="mr-3 h-6 w-6" />
+                  Get Started Today
                 </Button>
               </Link>
             </motion.div>
@@ -320,7 +320,7 @@ const Home = () => {
             {/* Stats Section */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 max-w-4xl mx-auto"
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 max-w-4xl mx-auto"
             >
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
@@ -366,7 +366,7 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             <UserPathCard
               title="I'm just starting"
-              description="Get expert guidance on the registration process, policy creation, and everything you need to open a children's home."
+              description="Get expert guidance on the registration process, 10+ compliant policies, and everything you need to open a children's home."
               icon="Lightbulb"
               path="/pre-registration"
               color="teal"
@@ -479,7 +479,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonial Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -493,47 +493,46 @@ const Home = () => {
               What Our <span className="gradient-text">Clients Say</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Success stories from children's homes we've supported
+              Real feedback from providers we've helped succeed
             </p>
           </motion.div>
 
-          <div className="max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-white shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-navy-500 via-mustard-400 to-emerald-500" />
-
-                  <CardHeader className="text-center pb-6 pt-12">
-                    <div className="flex justify-center mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-6 w-6 text-mustard-400 fill-current"
-                        />
-                      ))}
-                    </div>
-                    <CardTitle className="text-2xl font-heading text-navy-800">
-                      {testimonial.name}
-                    </CardTitle>
-                    <CardDescription className="text-lg text-gray-600">
-                      {testimonial.role}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="px-12 pb-12">
-                    <blockquote className="text-gray-700 text-lg leading-relaxed text-center italic">
-                      "{testimonial.content}"
-                    </blockquote>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <Card className="bg-white shadow-2xl border-0 overflow-hidden">
+              <CardContent className="p-12">
+                <div className="flex items-center mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-6 w-6 text-mustard-400 fill-current"
+                    />
+                  ))}
+                </div>
+                <blockquote className="text-xl md:text-2xl text-gray-700 italic leading-relaxed mb-8">
+                  &quot;{testimonials[0].content}&quot;
+                </blockquote>
+                <div className="flex items-center">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-navy-500 to-navy-600 flex items-center justify-center text-white font-bold text-xl mr-6">
+                    GC
+                  </div>
+                  <div>
+                    <p className="font-bold text-xl text-gray-900">
+                      {testimonials[0].name}
+                    </p>
+                    <p className="text-gray-600 text-lg">
+                      {testimonials[0].role}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
@@ -595,7 +594,7 @@ const Home = () => {
               <Link to="/contact">
                 <Button className="border-2 border-white text-white hover:bg-white hover:text-navy-800 font-semibold px-10 py-6 text-lg rounded-xl transition-all duration-300 transform hover:scale-105">
                   <MailIcon className="mr-3 h-6 w-6" />
-                  Contact Us
+                  Contact Us Today
                 </Button>
               </Link>
             </div>

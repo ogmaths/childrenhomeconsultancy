@@ -9,7 +9,6 @@ import {
   FileText,
   ClipboardCheck,
   Building,
-  Download,
   Phone,
 } from "lucide-react";
 
@@ -48,11 +47,6 @@ const Navigation = () => {
       path: "/post-registration",
       icon: <Building className="h-4 w-4" />,
     },
-    {
-      name: "Resources",
-      path: "/resources",
-      icon: <Download className="h-4 w-4" />,
-    },
   ];
 
   return (
@@ -78,7 +72,7 @@ const Navigation = () => {
                   isScrolled ? "text-gray-900" : "text-white"
                 }`}
               >
-                Children's Home Consultancy
+                Thrive Care Consultants
               </h1>
             </div>
           </Link>

@@ -327,12 +327,12 @@ const InspectionReadiness = () => {
                         <p className="text-gray-600">{resource.description}</p>
                       </CardContent>
                       <CardFooter>
-                        <Link to="/resources">
+                        <Link to="/contact">
                           <Button
                             variant="outline"
                             className="w-full flex items-center justify-center"
                           >
-                            <Download className="h-4 w-4 mr-2" /> Download Free
+                            <Download className="h-4 w-4 mr-2" /> Contact Us
                           </Button>
                         </Link>
                       </CardFooter>
@@ -371,59 +371,11 @@ const InspectionReadiness = () => {
             </TabsContent>
           </Tabs>
           <div className="mt-8 text-center">
-            <Button variant="link" className="text-navy-600">
-              View All Resources <ArrowRight className="h-4 w-4 ml-1" />
-            </Button>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            What Our Clients Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-gray-50">
-              <CardContent className="pt-6">
-                <p className="italic text-gray-600 mb-4">
-                  "The mock inspection was incredibly thorough and gave us
-                  exactly the preparation we needed. We passed our Ofsted
-                  inspection with flying colors thanks to the detailed feedback
-                  and action plan."
-                </p>
-                <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-navy-200 flex items-center justify-center text-navy-700 font-bold mr-3">
-                    JD
-                  </div>
-                  <div>
-                    <p className="font-medium">Jane Doe</p>
-                    <p className="text-sm text-gray-500">
-                      Registered Manager, Happy Home Care
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-gray-50">
-              <CardContent className="pt-6">
-                <p className="italic text-gray-600 mb-4">
-                  "The Reg 44 support has been invaluable. Having an expert eye
-                  review our processes monthly has improved our quality
-                  standards and given us confidence in our compliance."
-                </p>
-                <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-navy-200 flex items-center justify-center text-navy-700 font-bold mr-3">
-                    MS
-                  </div>
-                  <div>
-                    <p className="font-medium">Michael Smith</p>
-                    <p className="text-sm text-gray-500">
-                      Director, Bright Futures Children's Services
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <Link to="/contact">
+              <Button variant="link" className="text-navy-600">
+                Contact Us for More <ArrowRight className="h-4 w-4 ml-1" />
+              </Button>
+            </Link>
           </div>
         </section>
 

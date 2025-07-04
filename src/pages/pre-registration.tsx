@@ -160,28 +160,6 @@ const PreRegistration = () => {
               expert guidance, and proven success strategies
             </p>
           </motion.div>
-
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16"
-          >
-            {[
-              { number: "98%", label: "Success Rate" },
-              { number: "150+", label: "Homes Registered" },
-              { number: "20+", label: "Policy Templates" },
-              { number: "24/7", label: "Support Available" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-navy-600 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
@@ -266,10 +244,10 @@ const PreRegistration = () => {
                       Book a Free Consultation
                     </Button>
                   </Link>
-                  <Link to="/resources">
+                  <Link to="/contact">
                     <Button className="btn-secondary w-full text-lg py-6">
                       <Download className="mr-3 h-5 w-5" />
-                      Download Free Starter Guide
+                      Get Free Consultation
                     </Button>
                   </Link>
                 </CardContent>
@@ -550,86 +528,6 @@ const PreRegistration = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">
-              Success <span className="gradient-text">Stories</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear from providers who've successfully registered with our
-              support
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                name: "Jane Doe",
-                role: "Registered Manager, Sunshine Children's Home",
-                content:
-                  "The pre-registration support was invaluable. The team guided us through every step of the process, and our application was approved on the first submission. The policy pack saved us months of work!",
-                rating: 5,
-              },
-              {
-                name: "Michael Smith",
-                role: "Director, New Horizons Care",
-                content:
-                  "As someone new to the sector, I was overwhelmed by the registration requirements. This service broke everything down into manageable steps and provided all the documentation I needed. Highly recommended!",
-                rating: 5,
-              },
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border-0 h-full">
-                  <CardHeader>
-                    <div className="flex justify-center mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-5 w-5 text-mustard-400 fill-current"
-                        />
-                      ))}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <blockquote className="text-gray-700 text-lg leading-relaxed mb-6 italic">
-                      "{testimonial.content}"
-                    </blockquote>
-                    <div className="flex items-center">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-navy-500 to-navy-600 flex items-center justify-center text-white font-bold text-lg mr-4">
-                        {testimonial.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">
-                          {testimonial.name}
-                        </h4>
-                        <p className="text-gray-600">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-navy-800 via-navy-700 to-navy-800 text-white relative overflow-hidden">
         {/* Background Elements */}
@@ -669,9 +567,9 @@ const PreRegistration = () => {
                   Book a Compliance Discovery Call
                 </Button>
               </Link>
-              <Link to="/resources">
+              <Link to="/contact">
                 <Button className="border-2 border-white text-white hover:bg-white hover:text-navy-800 font-semibold px-10 py-6 text-lg rounded-xl transition-all duration-300 transform hover:scale-105">
-                  Download Free Registration Guide
+                  Get Free Consultation
                 </Button>
               </Link>
             </div>
