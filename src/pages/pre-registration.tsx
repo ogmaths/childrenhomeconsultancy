@@ -60,7 +60,7 @@ const PreRegistration = () => {
       price: "£995",
       features: [
         "Statement of Purpose template",
-        "20+ compliant policies",
+        "10+ compliant policies",
         "Children's Guide template",
         "Basic registration guidance",
       ],
@@ -111,7 +111,7 @@ const PreRegistration = () => {
     {
       icon: <Shield className="h-8 w-8" />,
       title: "Policy & Procedure Pack",
-      description: "20+ essential compliant policies",
+      description: "10+ essential compliant policies",
       features: [
         "Safeguarding and child protection",
         "Behavior management",
