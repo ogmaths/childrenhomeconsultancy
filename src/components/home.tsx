@@ -286,7 +286,7 @@ const Home = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-gray-900 tracking-tight mb-6">
                 <span className="block">Start, Strengthen, or</span>
                 <span className="block gradient-text">
-                  Save Your Children's Home
+                  Save Your Children's Home or Supported Accommodation
                 </span>
               </h1>
             </motion.div>
